@@ -9,4 +9,8 @@ for i in a:
     elif i != 1:
         fibonacci.append(fibonacci[i-1] + fibonacci[i-2])
 
-print(fibonacci)
+for i in fibonacci:
+    if fibonacci[i] <= 20:
+        sum += fibonacci[i]
+
+print(sum)
