@@ -7,8 +7,6 @@ for i in a:
     if i == 1:
         fibonacci.append(i)
     elif i != 1:
-        fibonacci[i] = fibonacci[i-1] + fibonacci[i-2]
-        if fibosum <= 20:
-            fibonacci.append(fibosum)
+        fibonacci.append(fibonacci[i-1] + fibonacci[i-2])
 
 print(fibonacci)
