@@ -1,5 +1,3 @@
-# 파이썬 정리 Ver.2
-
 1. 프로그래밍이란?
 
 컴퓨터가 알아듣는 말로 소프트웨어를 만드는 것이 프로그래밍이라고 할 수 있다.
@@ -300,7 +298,10 @@ result
 - 인덱스를 이용해 문자열 수정하기
 
 ```python
+#불가
+
 a = 'sangbo'
+
 a[4] = 'd'
 ```
 
@@ -682,19 +683,6 @@ a[-1] -> 4
 
 a[0] + a[1] -> 3
 
-#오류체크
-a = ['a',1,'2',3,'b',3.4]
-
-b = a[0]+a[4]
-print(b) -> 'ab'
-#c = a[0]+a[1] cannot concatenate 'str' and 'int' objects
-#print(c) concatenate 사슬처럼 있다
-d = a[1]+a[5]
-print(d) -> 4.4 #float 되네잉
-#e = a[1]+a[4]
-#print(e)TypeError: unsupported operand type(s) for +: 'int' and 'str'
-f = a[0]+a[2]
-print(f) -> a2
 ```
 
 - 이중, 삼중 리스트에서의 인덱싱.
@@ -726,7 +714,92 @@ a[2:4] -> [['a','b','c'],3]
 a[2][:2] -> ['a','b']
 ```
 
-3-3-1 리스트는 어떻게 만들고 사용하는가?
+3-3-2 리스트 연산
+
+- 더하기
+
+```python
+a = [1, 2, 3]
+b = [4, 5, 6]
+
+a + b -> [1,2,3,4,5,6]
+
+#문자열에서
+"123" + "456"이 "123456"이 되는 이치와 같다.
+물론 콤마 안 숫자는 문자형 자료형으로 인식되지만.
+
+```
+
+- 곱하기(반복, *)
+
+```python
+a = [1,2,3]
+
+a * 2
+
+a -> [1,2,3,1,2,3]
+```
+
+- 길이 구하기
+
+```python
+a = [1,2,3]
+
+len(a) -> 3
+
+#len은 튜플과 딕셔너리에서도 사용하는 함수이다.
+```
+
+- 발생할 수 있는 연산 오류들
+
+```python
+
+#오류체크
+a = ['a',1,'2',3,'b',3.4]
+
+b = a[0]+a[4]
+print(b) -> ab
+
+#c = a[0]+a[1] cannot concatenate 'str' and 'int' objects
+#print(c) concatenate 사슬처럼 있다
+
+d = a[1]+a[5]
+print(d) -> 4.4 #float 되네잉
+
+#e = a[1]+a[4]
+#print(e)TypeError: unsupported operand type(s) for +: 'int' and 'str'
+
+f = a[0]+a[2]
+print(f) -> a2
+
+#이렇게하면 자료형 연산오류를 없앨 수 있다.
+#문자형이라고 연산결과에 따옴표가 생기지는 않는다.
+g = a[0]+str(a[1]) -> a1
+```
+
+3-3-3 리스트의 수정과 삭제
+
+- 리스트 수정
+
+```python
+#리스트 인덱스로 간단히 수정할 수 있다.
+#문자열 자료형이 (immutable)해서 슬라이싱 이용 수정했던 것과 대조됨.
+
+a = [1, 2, 3]
+
+a[2] = 4
+
+a -> [1, 2, 4]
+```
+
+- 리스트 삭제
+
+```python
+#del 함수 이용
+a = [1, 2, 3]
+del a[1]
+a -> [1, 3]
+```
 
 5.리스트
 
@@ -1587,3 +1660,29 @@ print(l, end=’’)
 `s = s.upper()`
 
 -리스트 문자열 합치기.
+
+```python
+abc=[’A’, ‘B’, ‘C’]
+
+str1 = ‘구분자‘.join(abc)
+```
+
+---
+
+참고문헌
+
+1. 점프투 파이썬
+
+출판사 이지스 퍼블리싱
+
+저자 박응용
+
+위키독스 : [https://wikidocs.net/book/1](https://wikidocs.net/book/1)
+
+1. 왕초보를 위한 Python: 쉽게 풀어쓴 기초 문법과 실습
+
+저자 : 최용
+
+위키독스 : [https://wikidocs.net/book/2](https://wikidocs.net/book/2)
+
+위키독스로 무료로 공개된 두 자료를 활용하여 공부하고 정리 요약하였습니다.

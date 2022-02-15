@@ -10,3 +10,6 @@ print(d) #float 되네잉
 #print(e)TypeError: unsupported operand type(s) for +: 'int' and 'str'
 f = a[0]+a[2]
 print(f)
+
+g = a[0]+str(a[1])
+print(g)
