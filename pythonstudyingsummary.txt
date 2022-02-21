@@ -1417,11 +1417,51 @@ print(b) -> 3
 
 4-1-1 if문의 기본구조
 
-```
+- 조건문을 테스트해서 참이면 if블록을 수행하고, 조건문이 거짓이면 else블록을 수행한다.
+- if 조건문 뒤에서는 반드시 콜론(:)이 붙는다. while이나 for, def, class문 등에도 항상 들어간다.
+- 들여쓰기(identation)를 통해서 수행문 블록을 구분해줘야 한다.
+- 다른 언어등이 { (brace)를 이용하는 것과 대조되게 파이썬은 콜론과 들여쓰기를 활용한다.
+
+```jsx
 if 조건문:
 	수행문
 else:
 	수행문
+```
+
+4-1-2 if의 조건문에 사용될 수 있는 요소들.
+
+- if 조건문에서 조건문이란 참과 거짓이 판단되는 문장을 말한다.
+
+```jsx
+money = True
+if money:
+```
+
+- 비교연산자
+
+`x<y`, `x>y`, `x==y`, `x!=y`, `x>=y`, `x<=y`
+
+- and, or, not
+
+`x or y`논리합. `x and y`논리곱 `not x`negation
+
+```python
+# or
+money = 10
+cheat = True
+if money > 10 or cheat:
+	print("구매성공")
+else:
+	print("구매실패")
+
+# and
+noble = True
+score = 100
+if score >= 10 and noble:
+	print("합격입니다")
+else:
+	print("불합격입니다")
 ```
 
 5.리스트
