@@ -1668,16 +1668,122 @@ a의 요소값이 튜플이기에 각 요소가 자동으로 변수에 할당된
 
 `(first, last) = (1,2)`튜플 선언과 비슷
 
-- 응용!
+- 응용
 
 ```python
-marks = [9,100,2,1,20)
+#rank1.py
+ranks = [9,100,2,1,20)
 
-number = 0
-for mark in marks:
-	number = number + 1
-	if mark >= 10:
-			print(f"
+for rank in ranks:
+	if rank >= 10:
+			print(f'등수 {rank}학생은 불합격입니다.')
+	else:
+			print(f'등수 {rank}학생은 최종합격 대상입니다')
+```
+
+- for문과 continue
+
+```python
+#while문에서의 continue를 for문에서도 사용할 수 있다.
+#동일하게 실행중 continue문을 만나면 for문의 처음으로 회귀한다.
+
+#ranks2.py
+ranks = [9,100,2,1,20)
+
+for rank in ranks:
+	if rank < 10:
+			continue
+print(f'등수 {rank}학생은 최종합격 대상입니다')
+
+#10 marks1과 동일한 실행 결과를 가져온다. 등수 10 등 이상일시 문장 처음으로 회귀
+```
+
+- for문과 range()
+
+```python
+#숫자 리스트를 자동으로 만들어주는 range함수와 for문은 자주 함께 사용된다.
+
+#ranks3.py
+ranks = [9,100,2,1,20)
+
+for number in range(len(ranks)):
+	if ranks[number] < 10:
+			continue
+print(f'{number+1}번 학생은 최종등수 {ranks}로 한자리 등수 이내. 최종합격 대상입니다')
+
+#인덱스니 +1해줌
+
+#for gugu
+
+for i in range(2,10):
+    for j in range(1,10):
+        print(i*j, end=" ")
+    print('')
+#각 반환 값은 스페이스로 구분.
+#각 단은 개행으로.
+
+```
+
+4-3-3 리스트 내포
+
+- 리스트 내포를 사용하면 좀 더 직관적인 프로그래밍이 가능하다.
+- 리스트 내포의 형식은 다음과 같다.
+
+```python
+#일반적 형식
+[표현식 for 항목 in 반복가능객체 if 조건문]
+
+#for문의 다중사용.
+[표현식 for 항목1 in 반복가능객체 if 조건문1
+				for 항목1 in 반복가능객체 if 조건문2
+				.
+				.                            ]
+```
+
+```python
+#a1.py
+a = [1,2,3,4]
+result = []
+for num in a:
+	result.append(num*3)
+print(result)
+
+#리스트 내포를 사용하면 좀 더 편리하고 직관적인 프로그래밍이 가능하다.
+
+#a2.py
+a = [1,2,3,4]
+result = [num * 3 for num in a]
+print(result)
+
+#listcomp_gugu
+result = [x*y for x in range(2,10)
+							for y in range(1,10)]
+print(result)
+
+```
+
+- 챕터4에서는 프로그램 흐름을 제어하는 if while for문에 대해 알아보았다. for문과 while문은 반복문으로써 서로 비슷한 부분이 많다.
+
+---
+
+5 프로그램의 입출력
+
+- 프로그래머는 프로그램을 만들기 전에 어떤 식으로 동작하게 할 것인지 설계하는데 가장 중요한 부분이 입출력의 설계이다.
+- 특정 프로그램만이 사용하는 함수, 모든 프로그램이 공통으로 사용하는 함수, 더 나아가 오픈 api로 외부 프로그램도 사용 할 수 있게 할 것인지 모두 입출력과 관계가 있다.
+- 함수, 입출력, 파일 처리 방법등을 알아본다.
+
+---
+
+5-1 함수
+
+- 함수란 입력값을 가지고 어떤 일을 수행한 다음에 그 결과물을 출력하는 것이다.
+- 반복되는 부분이 있을 경우, 한 뭉치로 묶어서 함수로 작성하는 것이 현명하다.
+- 함수화를 하면 프로그램 흐름을 일목 요연하게 파악하며 오류파악에도 용이 하다. 능력있는 프로그래머를 가르는 가장 중요한 부분이라 할 수 있다.
+
+5-1-1
+
+```python
+함수의 예
 ```
 5.리스트
 
